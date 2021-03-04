@@ -4,11 +4,14 @@
 
 void __do_test__(const std::string testName, std::function<void()> testBody)
 {
+   #define colored(str, color) set ## color + str + endColor
+
+   std::string message;
    std::string setGreen = "\033[32m";
    std::string setRed = "\033[31m";
    std::string endColor = "\033[m";
-   std::string result = setGreen + "passed" + endColor;
-   std::string message;
+
+   std::string result = colored("passed", Green);
 
    try
    {
@@ -16,7 +19,7 @@ void __do_test__(const std::string testName, std::function<void()> testBody)
    }
    catch(const std::exception & e)
    {
-      result = setRed + "failed" + endColor;
+      result = colored("failed", Red);
       message = "\n" + std::string(e.what());
    }
 
