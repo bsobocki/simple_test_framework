@@ -4,7 +4,10 @@
 
 void __do_test__(const std::string testName, std::function<void()> testBody)
 {
-   std::string result = "passed";
+   std::string setGreen = "\033[32m";
+   std::string setRed = "\033[31m";
+   std::string endColor = "\033[m";
+   std::string result = setGreen + "passed" + endColor;
    std::string message;
 
    try
@@ -13,7 +16,7 @@ void __do_test__(const std::string testName, std::function<void()> testBody)
    }
    catch(const std::exception & e)
    {
-      result = "failed";
+      result = setRed + "failed" + endColor;
       message = "\n" + std::string(e.what());
    }
 
