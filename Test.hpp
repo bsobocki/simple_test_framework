@@ -26,4 +26,4 @@ struct __test__
    tests.push_back(&test_name); \
    test_name.body = LAMBDA_WITHOUT_BODY
 
-#define INIT_TEST_FRAMEWORK int main() { std::vector<__test__*> tests; // int main() to use RUN_TESTS
+#define INIT_TEST_FRAMEWORK int main() { std::vector<__test__*> tests;

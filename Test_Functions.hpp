@@ -2,6 +2,19 @@
 #include <functional>
 #include <iostream>
 
+namespace std
+{
+   string to_string(const char * str)
+   {
+      return string(str);
+   }
+
+   string to_string(const string & str)
+   {
+      return string(str);
+   }
+}
+
 void __do_test__(const std::string testName, std::function<void()> testBody)
 {
    #define colored(str, color) set ## color + str + endColor
